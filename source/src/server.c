@@ -80,7 +80,7 @@ void updateDistance(int* socket,double distance){
     char message[50];
     char c = DRIVE_FINISH_REQ;
     while(distance > 400){
-        sprintf(message,"Motorista a %.2lf m \n",distance);
+        sprintf(message,"Motorista a %.2lf m",distance);
         sendMessage(message,socket[1]);
         receiveMessage(socket[1]);
         distance -= 400;
