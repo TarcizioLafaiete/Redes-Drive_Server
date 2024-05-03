@@ -1,5 +1,4 @@
 #include "../include/coordinateUtils.h"
-#include <math.h>
 
 double haversine(Coordinate client, Coordinate server){
     double deltaLatitude = (server.latitude - client.latitude) * M_PI/180.0;
