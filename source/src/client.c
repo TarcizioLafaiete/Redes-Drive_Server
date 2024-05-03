@@ -23,15 +23,12 @@ int initClient(char* argv[]){
     return core.client_fd;
 }
 
-int acceptRequest(int socketClient){
+int acceptRequest(){
     int request;
     
     printf("Solicitacao de corrida: ");
     scanf("%d",&request);
-    printf("request: %d \n",request);
     if(!request){
-        // close_client(socketClient);
-        printf("here \n");
         return -1;     
     }
     else if(request != 1){
@@ -47,9 +44,7 @@ int acceptProcess(int socketClient){
     int rideAcceptLoop = 1;
     while(rideAcceptLoop){
         int accept = acceptRequest(socketClient);
-        printf("accept: %d \n",accept);
         if(accept == -1){
-            printf("here 2 \n");
             return 0;
         }
         else if(accept == 0){
@@ -92,9 +87,7 @@ int main(int argc, char* argv[]){
     while(mainClientLoop){
         
         int acceptResult = acceptProcess(socketClient);
-        printf("accept Result: %d \n",acceptResult);
         if(acceptResult == 0){
-            printf("here 3 \n");
             close_client(socketClient);
             printEndOfRide();
             return 0;
