@@ -86,6 +86,14 @@ void updateDistance(int* socket,double distance){
         distance -= 400;
         sleep(2);
     }
+
+    if(distance > 0){
+        sprintf(message,"Motorista a %.2lf m",distance);
+        sendMessage(message,socket[1]);
+        receiveMessage(socket[1]);
+        sleep(2);
+    }
+
     sendMessage("O Motorista chegou!",socket[1]);
     printInitOrEndDrive();
     printUpdateDistance("O Motorista chegou!");
@@ -104,7 +112,7 @@ int main(int argc,char* argv[]){
             close_server(sock[0],sock[1]);
             sock = initServer(argv);
         }
-        else{
+        else if(firstRequest[0] == REQUEST_DRIVE){
             int drive_situation = acceptDrive(sock);
             if(!drive_situation){
                 printWaitingRequest();
@@ -114,6 +122,9 @@ int main(int argc,char* argv[]){
                 double distance = haversine(coordClient,coordServ);
                 updateDistance(sock,distance);
             }
+        }
+        else{
+            return 0;
         }
     }
 
