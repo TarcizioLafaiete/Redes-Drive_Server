@@ -124,6 +124,7 @@ int main(int argc,char* argv[]){
             }
         }
         else{
+            close_server(sock[0],sock[1]);
             return 0;
         }
     }
