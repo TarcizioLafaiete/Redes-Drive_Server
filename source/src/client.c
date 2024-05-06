@@ -6,7 +6,8 @@
 #include "../include/terminalPrinter.h"
 #include "../include/coordinateUtils.h"
 
-Coordinate coordClient = {.latitude = -19.7884, .longitude = -42.01325};
+Coordinate coordClient = {-19.9227,-43.9251};
+
 
 
 int initClient(char* argv[]){
