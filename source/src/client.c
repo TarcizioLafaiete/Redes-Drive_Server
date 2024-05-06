@@ -16,7 +16,6 @@ int initClient(char* argv[]){
 
     create_socket(&core.client_fd,core.inet);
     core.serverSocket = configure_addr(core.inet,atoi(argv[3]));
-    inet_pton(AF_INET,argv[2],&core.serverSocket.addr.sin_addr);
     
     connect_client(&core);
 
