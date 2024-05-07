@@ -56,7 +56,7 @@ void create_socket(int* socket_fd,typeIP ip){
 
 const char* receiveMessage(int socket){
     char* buffer = (char*)calloc(max_messagem_size,sizeof(char));
-    read(socket,buffer,max_messagem_size);
+    recv(socket,buffer,max_messagem_size,0);
     return buffer;
 }
 
